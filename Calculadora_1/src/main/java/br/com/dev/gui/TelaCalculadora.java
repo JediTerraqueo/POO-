@@ -12,7 +12,7 @@ public class TelaCalculadora extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
+  
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -46,7 +46,7 @@ public class TelaCalculadora extends javax.swing.JFrame {
             }
         });
 
-        botao7.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        botao7.setFont(new java.awt.Font("Ubuntu", 0, 24)); 
         botao7.setText("7");
         botao7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -54,7 +54,7 @@ public class TelaCalculadora extends javax.swing.JFrame {
             }
         });
 
-        botao8.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        botao8.setFont(new java.awt.Font("Ubuntu", 0, 24)); 
         botao8.setText("8");
         botao8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -62,7 +62,7 @@ public class TelaCalculadora extends javax.swing.JFrame {
             }
         });
 
-        botao9.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        botao9.setFont(new java.awt.Font("Ubuntu", 0, 24)); 
         botao9.setText("9");
         botao9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -70,7 +70,7 @@ public class TelaCalculadora extends javax.swing.JFrame {
             }
         });
 
-        botao5.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        botao5.setFont(new java.awt.Font("Ubuntu", 0, 24)); 
         botao5.setText("5");
         botao5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -78,7 +78,7 @@ public class TelaCalculadora extends javax.swing.JFrame {
             }
         });
 
-        botao6.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        botao6.setFont(new java.awt.Font("Ubuntu", 0, 24)); 
         botao6.setText("6");
         botao6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -86,7 +86,7 @@ public class TelaCalculadora extends javax.swing.JFrame {
             }
         });
 
-        botao4.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        botao4.setFont(new java.awt.Font("Ubuntu", 0, 24)); 
         botao4.setText("4");
         botao4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -94,7 +94,7 @@ public class TelaCalculadora extends javax.swing.JFrame {
             }
         });
 
-        botao1.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        botao1.setFont(new java.awt.Font("Ubuntu", 0, 24)); 
         botao1.setText("1");
         botao1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -102,7 +102,7 @@ public class TelaCalculadora extends javax.swing.JFrame {
             }
         });
 
-        botao2.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        botao2.setFont(new java.awt.Font("Ubuntu", 0, 24)); 
         botao2.setText("2");
         botao2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -110,7 +110,7 @@ public class TelaCalculadora extends javax.swing.JFrame {
             }
         });
 
-        botao3.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        botao3.setFont(new java.awt.Font("Ubuntu", 0, 24)); 
         botao3.setText("3");
         botao3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -118,7 +118,7 @@ public class TelaCalculadora extends javax.swing.JFrame {
             }
         });
 
-        botao0.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        botao0.setFont(new java.awt.Font("Ubuntu", 0, 24)); 
         botao0.setText("0");
         botao0.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -126,7 +126,7 @@ public class TelaCalculadora extends javax.swing.JFrame {
             }
         });
 
-        botaoVezes.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        botaoVezes.setFont(new java.awt.Font("Ubuntu", 0, 24)); 
         botaoVezes.setText("*");
         botaoVezes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -134,7 +134,7 @@ public class TelaCalculadora extends javax.swing.JFrame {
             }
         });
 
-        botaoDiv.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        botaoDiv.setFont(new java.awt.Font("Ubuntu", 0, 24)); 
         botaoDiv.setText("/");
         botaoDiv.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -142,7 +142,7 @@ public class TelaCalculadora extends javax.swing.JFrame {
             }
         });
 
-        botaoMenos.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        botaoMenos.setFont(new java.awt.Font("Ubuntu", 0, 24)); 
         botaoMenos.setText("-");
         botaoMenos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -150,7 +150,7 @@ public class TelaCalculadora extends javax.swing.JFrame {
             }
         });
 
-        botaoMais.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        botaoMais.setFont(new java.awt.Font("Ubuntu", 0, 24)); 
         botaoMais.setText("+");
         botaoMais.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -344,7 +344,7 @@ public class TelaCalculadora extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>
+    }
 
     private void botaoCEMouseClicked(java.awt.event.MouseEvent evt)
     {
@@ -368,68 +368,68 @@ public class TelaCalculadora extends javax.swing.JFrame {
     private void botao8MouseClicked(java.awt.event.MouseEvent evt)
     {
         String valor = visorCalculador.getText();
-        visorCalculador.setText(valor + "8");        // TODO add your handling code here:
+        visorCalculador.setText(valor + "8");        
     }
 
     private void botao9MouseClicked(java.awt.event.MouseEvent evt)
     {
         String valor = visorCalculador.getText();
-        visorCalculador.setText(valor + "9");        // TODO add your handling code here:
+        visorCalculador.setText(valor + "9");        
     }
 
     private void botaoDivMouseClicked(java.awt.event.MouseEvent evt)
     {
         String valor = visorCalculador.getText();
-        visorCalculador.setText(valor + "/");        // TODO add your handling code here:
+        visorCalculador.setText(valor + "/");        
     }
 
     private void botao4MouseClicked(java.awt.event.MouseEvent evt)
     {
         String valor = visorCalculador.getText();
-        visorCalculador.setText(valor + "4");        // TODO add your handling code here:
+        visorCalculador.setText(valor + "4");        
     }
 
     private void botao5MouseClicked(java.awt.event.MouseEvent evt)
     {
         String valor = visorCalculador.getText();
-        visorCalculador.setText(valor + "5");        // TODO add your handling code here:
+        visorCalculador.setText(valor + "5");        
     }
 
     private void botao6MouseClicked(java.awt.event.MouseEvent evt)
     {
         String valor = visorCalculador.getText();
-        visorCalculador.setText(valor + "6");        // TODO add your handling code here:
+        visorCalculador.setText(valor + "6");        
     }
 
     private void botaoMenosMouseClicked(java.awt.event.MouseEvent evt)
     {
         String valor = visorCalculador.getText();
-        visorCalculador.setText(valor + "-");        // TODO add your handling code here:
+        visorCalculador.setText(valor + "-");        
     }
 
     private void botao1MouseClicked(java.awt.event.MouseEvent evt) {
         String valor = visorCalculador.getText();
-        visorCalculador.setText(valor + "1");        // TODO add your handling code here:
+        visorCalculador.setText(valor + "1");        
     }
 
     private void botao2MouseClicked(java.awt.event.MouseEvent evt) {
         String valor = visorCalculador.getText();
-        visorCalculador.setText(valor + "2");        // TODO add your handling code here:
+        visorCalculador.setText(valor + "2");        
     }
 
     private void botao3MouseClicked(java.awt.event.MouseEvent evt) {
         String valor = visorCalculador.getText();
-        visorCalculador.setText(valor + "3");        // TODO add your handling code here:
+        visorCalculador.setText(valor + "3");        
     }
 
     private void botaoMaisMouseClicked(java.awt.event.MouseEvent evt) {
         String valor = visorCalculador.getText();
-        visorCalculador.setText(valor + "+");        // TODO add your handling code here:
+        visorCalculador.setText(valor + "+");        
     }
 
     private void botao0MouseClicked(java.awt.event.MouseEvent evt) {
         String valor = visorCalculador.getText();
-        visorCalculador.setText(valor + "0");        // TODO add your handling code here:
+        visorCalculador.setText(valor + "0");        
     }
 
     private void botaoIgualMouseClicked(java.awt.event.MouseEvent evt) {
@@ -439,12 +439,10 @@ public class TelaCalculadora extends javax.swing.JFrame {
         String resultado = calculos.calculadora(valor);
 
         visorCalculador.setText(resultado);
-// TODO add your handling code here:
+
     }
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) {
 
         try {
@@ -459,22 +457,12 @@ public class TelaCalculadora extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TelaCalculadora.class.getName()).log(
             java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
+       
         java.awt.EventQueue.invokeLater(() -> {
             new TelaCalculadora().setVisible(true);
         });
     }
-    // Variables declaration - do not modify
+  
     private javax.swing.JButton botao0;
     private javax.swing.JButton botao1;
     private javax.swing.JButton botao2;
@@ -494,5 +482,5 @@ public class TelaCalculadora extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane visorCalculador;
-    // End of variables declaration
+    
 }
