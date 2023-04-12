@@ -10,6 +10,7 @@ public class LiderCampeonato {
         int[][] tabela = lerMatriz("src/main/java/resultados.txt");
         
         // Imprimir a matriz lida
+        System.out.println();
         System.out.println("Matriz de resultados:");
         imprimirMatriz(tabela);
         
