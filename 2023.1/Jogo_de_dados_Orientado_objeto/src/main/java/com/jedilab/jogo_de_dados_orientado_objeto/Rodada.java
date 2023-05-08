@@ -1,6 +1,7 @@
 package com.jedilab.jogo_de_dados_orientado_objeto;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Rodada {
     private Jogador jogador1;
