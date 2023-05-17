@@ -6,8 +6,8 @@ package com.jedilab.blog;
 
 /**
  *
- * @author jedi
+ * @author mathe
  */
-public class NewClass {
+public class Main {
     
 }

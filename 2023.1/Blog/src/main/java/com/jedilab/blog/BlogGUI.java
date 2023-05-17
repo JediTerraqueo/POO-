@@ -8,281 +8,326 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class BlogGUI extends JFrame {
-    private List<Post> posts = new ArrayList<>();
-    private List<Usuario> usuarios = new ArrayList<>();
-    private JTextArea textArea;
+public class BlogGUI extends javax.swing.JFrame {
+
+    private List<Post> posts;
+    private List<Usuario> usuarios;
 
     public BlogGUI() {
         initComponents();
+        posts = new ArrayList<>();
+        usuarios = new ArrayList<>();
     }
 
     private void initComponents() {
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jTabbedPane = new javax.swing.JTabbedPane();
+        jPanelPosts = new javax.swing.JPanel();
+        jButtonCriarPost = new javax.swing.JButton();
+        jScrollPanePosts = new javax.swing.JScrollPane();
+        textAreaPosts = new javax.swing.JTextArea();
+        jButtonComentarPost = new javax.swing.JButton();
+        jPanelUsers = new javax.swing.JPanel();
+        jButtonCriarUsuario = new javax.swing.JButton();
+        jScrollPaneUsers = new javax.swing.JScrollPane();
+        textAreaUsers = new javax.swing.JTextArea();
+        jButtonPontuarComentario = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Blog");
-        setSize(400, 300);
-        setLocationRelativeTo(null);
 
-        JPanel panel = new JPanel();
-        panel.setLayout(new BorderLayout());
-
-        JMenuBar menuBar = new JMenuBar();
-        JMenu menu = new JMenu("Menu");
-        JMenuItem novoPostItem = new JMenuItem("Novo Post");
-        JMenuItem comentarItem = new JMenuItem("Comentar em um Post");
-        JMenuItem exibirPostItem = new JMenuItem("Exibir um Post");
-        JMenuItem novoUsuarioItem = new JMenuItem("Novo Usuário");
-        JMenuItem sairItem = new JMenuItem("Sair");
-
-        novoPostItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                criarNovoPost();
+        jButtonCriarPost.setText("Criar Post");
+        jButtonCriarPost.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jButtonCriarPostActionPerformed(evt);
             }
         });
 
-        comentarItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                comentarPost();
+        textAreaPosts.setEditable(false);
+        textAreaPosts.setColumns(20);
+        textAreaPosts.setRows(5);
+        jScrollPanePosts.setViewportView(textAreaPosts);
+
+        jButtonComentarPost.setText("Comentar Post");
+        jButtonComentarPost.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jButtonComentarPostActionPerformed(evt);
             }
         });
 
-        exibirPostItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                exibirPost();
+        javax.swing.GroupLayout jPanelPostsLayout = new javax.swing.GroupLayout(jPanelPosts);
+        jPanelPosts.setLayout(jPanelPostsLayout);
+        jPanelPostsLayout.setHorizontalGroup(
+            jPanelPostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPostsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelPostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPanePosts, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
+                    .addGroup(jPanelPostsLayout.createSequentialGroup()
+                        .addComponent(jButtonCriarPost)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonComentarPost)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanelPostsLayout.setVerticalGroup(
+            jPanelPostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPostsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelPostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonCriarPost)
+                    .addComponent(jButtonComentarPost))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPanePosts, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane.addTab("Posts", jPanelPosts);
+
+        jButtonCriarUsuario.setText("Criar Usuário");
+        jButtonCriarUsuario.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jButtonCriarUsuarioActionPerformed(evt);
             }
         });
 
-        novoUsuarioItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                criarNovoUsuario();
+        textAreaUsers.setEditable(false);
+        textAreaUsers.setColumns(20);
+        textAreaUsers.setRows(5);
+        jScrollPaneUsers.setViewportView(textAreaUsers);
+
+        jButtonPontuarComentario.setText("Pontuar Comentário");
+        jButtonPontuarComentario.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jButtonPontuarComentarioActionPerformed(evt);
             }
         });
 
-        sairItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
+        javax.swing.GroupLayout jPanelUsersLayout = new javax.swing.GroupLayout(jPanelUsers);
+        jPanelUsers.setLayout(jPanelUsersLayout);
+        jPanelUsersLayout.setHorizontalGroup(
+            jPanelUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelUsersLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPaneUsers, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
+                    .addGroup(jPanelUsersLayout.createSequentialGroup()
+                        .addComponent(jButtonCriarUsuario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonPontuarComentario)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanelUsersLayout.setVerticalGroup(
+            jPanelUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelUsersLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonCriarUsuario)
+                    .addComponent(jButtonPontuarComentario))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPaneUsers, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
-        menu.add(novoPostItem);
-        menu.add(comentarItem);
-        menu.add(exibirPostItem);
-        menu.add(novoUsuarioItem);
-        menu.addSeparator();
-        menu.add(sairItem);
-        menuBar.add(menu);
+        jTabbedPane.addTab("Users", jPanelUsers);
 
-        panel.add(menuBar, BorderLayout.NORTH);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane)
+                .addContainerGap())
+        );
 
-        textArea = new JTextArea();
-        textArea.setEditable(false);
-        JScrollPane scrollPane = new JScrollPane(textArea);
-        panel.add(scrollPane, BorderLayout.CENTER);
-
-        add(panel);
+        pack();
     }
 
-    private void criarNovoPost() {
-        String titulo = JOptionPane.showInputDialog("Título do post:");
-        String conteudo = JOptionPane.showInputDialog("Conteúdo do post:");
-        String[] usuariosArray = usuarios.stream().map(Usuario::getNome).toArray(String[]::new);
-        String autor = (String) JOptionPane.showInputDialog(null, "Selecione o autor do post:",
-                "Selecionar Autor", JOptionPane.QUESTION_MESSAGE, null, usuariosArray, usuariosArray[0]);
+    private void jButtonCriarPostActionPerformed(ActionEvent evt) {
+        String titulo = JOptionPane.showInputDialog(this, "Digite o título do post:");
+        if (titulo != null && !titulo.isEmpty()) {
+            String texto = JOptionPane.showInputDialog(this, "Digite o texto do post:");
+            if (texto != null && !texto.isEmpty()) {
+                Usuario autor = selecionarUsuario();
+                if (autor != null) {
+                    Post post = new Post(titulo, texto, autor, new Date());
+                    posts.add(post);
+                    exibirPosts();
+                }
+            }
+        }
+    }
 
-        Usuario autorSelecionado = usuarios.get(usuariosArray.length - 1);
-        for (Usuario usuario : usuarios) {
-            if (usuario.getNome().equals(autor)) {
-                autorSelecionado = usuario;
-                break;
+    private void jButtonComentarPostActionPerformed(ActionEvent evt) {
+        Post postSelecionado = selecionarPost();
+        if (postSelecionado != null) {
+            String texto = JOptionPane.showInputDialog(this, "Digite o comentário:");
+            if (texto != null && !texto.isEmpty()) {
+                Usuario autor = selecionarUsuario();
+                if (autor != null) {
+                    Comentario comentario = new Comentario(texto, autor, new Date());
+                    postSelecionado.adicionarComentario(comentario);
+                    exibirPosts();
+                }
+            }
+        }
+    }
+
+    private void jButtonCriarUsuarioActionPerformed(ActionEvent evt) {
+        String nome = JOptionPane.showInputDialog(this, "Digite o nome do usuário:");
+        if (nome != null && !nome.isEmpty()) {
+            Usuario usuario = new Usuario(nome);
+            usuarios.add(usuario);
+            exibirUsuarios();
+        }
+    }
+
+    private void jButtonPontuarComentarioActionPerformed(ActionEvent evt) {
+        Comentario comentarioSelecionado = selecionarComentario();
+        if (comentarioSelecionado != null) {
+            Usuario pontuador = selecionarUsuario();
+            if (pontuador != null) {
+                int pontuacao = Integer.parseInt(JOptionPane.showInputDialog(this, "Digite a pontuação (0 a 5):"));
+                if (pontuacao >= 0 && pontuacao <= 5) {
+                    comentarioSelecionado.adicionarPontuacao(pontuacao);
+                    exibirUsuarios();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Pontuação inválida! A pontuação deve ser entre 0 e 5.");
+                }
+            }
+        }
+    }
+
+    private Usuario selecionarUsuario() {
+        if (usuarios.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Não há usuários cadastrados.");
+            return null;
+        }
+
+        String[] opcoes = new String[usuarios.size()];
+        for (int i = 0; i < usuarios.size(); i++) {
+            opcoes[i] = usuarios.get(i).getNome();
+        }
+
+        String usuarioSelecionado = (String) JOptionPane.showInputDialog(this, "Selecione o usuário:", "Selecionar Usuário",
+                JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
+
+        if (usuarioSelecionado != null) {
+            for (Usuario usuario : usuarios) {
+                if (usuario.getNome().equals(usuarioSelecionado)) {
+                    return usuario;
+                }
             }
         }
 
-        Post post = new Post(titulo, conteudo, autorSelecionado, new Date());
-        posts.add(post);
-
-        atualizarTextArea("Novo post criado com sucesso!");
+        return null;
     }
 
-    private void comentarPost() {
+    private Post selecionarPost() {
         if (posts.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Não há posts disponíveis para comentar.");
-            return;
+            JOptionPane.showMessageDialog(this, "Não há posts disponíveis.");
+            return null;
         }
 
-        String[] titulosPosts = posts.stream().map(Post::getTitulo).toArray(String[]::new);
-        String tituloPost = (String) JOptionPane.showInputDialog(null, "Selecione o post para comentar:",
-                "Selecionar Post", JOptionPane.QUESTION_MESSAGE, null, titulosPosts, titulosPosts[0]);
+        String[] opcoes = new String[posts.size()];
+        for (int i = 0; i < posts.size(); i++) {
+            opcoes[i] = posts.get(i).getTitulo();
+        }
 
-        Post postSelecionado = null;
-        for (Post post : posts) {
-            if (post.getTitulo().equals(tituloPost)) {
-                postSelecionado = post;
-                break;
+        String postSelecionado = (String) JOptionPane.showInputDialog(this, "Selecione o post:", "Selecionar Post",
+                JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
+
+        if (postSelecionado != null) {
+            for (Post post : posts) {
+                if (post.getTitulo().equals(postSelecionado)) {
+                    return post;
+                }
             }
         }
 
-        if (postSelecionado == null) {
-            JOptionPane.showMessageDialog(null, "Post selecionado não encontrado.");
-            return;
-        }
-
-        String comentario = JOptionPane.showInputDialog("Digite o comentário:");
-        String[] usuariosArray = usuarios.stream().map(Usuario::getNome).toArray(String[]::new);
-        String autor = (String) JOptionPane.showInputDialog(null, "Selecione o autor do comentário:",
-                "Selecionar Autor", JOptionPane.QUESTION_MESSAGE, null, usuariosArray, usuariosArray[0]);
-
-        Usuario autorSelecionado = usuarios.get(usuariosArray.length - 1);
-        for (Usuario usuario : usuarios) {
-            if (usuario.getNome().equals(autor)) {
-                autorSelecionado = usuario;
-                break;
-            }
-        }
-
-        Comentario novoComentario = new Comentario(comentario, autorSelecionado, new Date());
-        postSelecionado.adicionarComentario(novoComentario);
-
-        atualizarTextArea("Comentário adicionado com sucesso!");
+        return null;
     }
 
-    private void exibirPost() {
-        if (posts.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Não há posts disponíveis.");
-            return;
-        }
-
-        String[] titulosPosts = posts.stream().map(Post::getTitulo).toArray(String[]::new);
-        String tituloPost = (String) JOptionPane.showInputDialog(null, "Selecione o post para exibir:",
-                "Selecionar Post", JOptionPane.QUESTION_MESSAGE, null, titulosPosts, titulosPosts[0]);
-
-        Post postSelecionado = null;
+    private Comentario selecionarComentario() {
+        List<Comentario> comentarios = new ArrayList<>();
         for (Post post : posts) {
-            if (post.getTitulo().equals(tituloPost)) {
-                postSelecionado = post;
-                break;
-            }
+            comentarios.addAll(post.getComentarios());
         }
 
-        if (postSelecionado == null) {
-            JOptionPane.showMessageDialog(null, "Post selecionado não encontrado.");
-            return;
-        }
-
-        StringBuilder sb = new StringBuilder();
-        sb.append("Título: ").append(postSelecionado.getTitulo()).append("\n");
-        sb.append("Autor: ").append(postSelecionado.getAutor().getNome()).append("\n");
-        sb.append("Data de postagem: ").append(postSelecionado.getData()).append("\n");
-        sb.append("Conteúdo:\n").append(postSelecionado.getConteudo()).append("\n");
-
-        List<Comentario> comentarios = postSelecionado.getComentarios();
         if (comentarios.isEmpty()) {
-            sb.append("Não há comentários para este post.");
-        } else {
-            sb.append("Comentários:\n");
+            JOptionPane.showMessageDialog(this, "Não há comentários disponíveis.");
+            return null;
+        }
+
+        String[] opcoes = new String[comentarios.size()];
+        for (int i = 0; i < comentarios.size(); i++) {
+            opcoes[i] = comentarios.get(i).getTexto();
+        }
+
+        String comentarioSelecionado = (String) JOptionPane.showInputDialog(this, "Selecione o comentário:", "Selecionar Comentário",
+                JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
+
+        if (comentarioSelecionado != null) {
             for (Comentario comentario : comentarios) {
-                sb.append("Autor: ").append(comentario.getAutor().getNome()).append("\n");
-                sb.append("Data de comentário: ").append(comentario.getData()).append("\n");
-                sb.append("Texto: ").append(comentario.getTexto()).append("\n\n");
+                if (comentario.getTexto().equals(comentarioSelecionado)) {
+                    return comentario;
+                }
             }
-    }
-   }
-    private void criarNovoUsuario() {
-        String nomeUsuario = JOptionPane.showInputDialog("Digite o nome do usuário:");
-        Usuario novoUsuario = new Usuario(nomeUsuario);
-        usuarios.add(novoUsuario);
-        atualizarTextArea("Novo usuário criado com sucesso!");
+        }
+
+        return null;
     }
 
-    private void atualizarTextArea(String texto) {
-        textArea.setText(texto);
+    private void exibirPosts() {
+        textAreaPosts.setText("");
+        for (Post post : posts) {
+            textAreaPosts.append("Título: " + post.getTitulo() + "\n");
+            textAreaPosts.append("Autor: " + post.getAutor().getNome() + "\n");
+            textAreaPosts.append("Data: " + post.getData() + "\n");
+            textAreaPosts.append("Texto: " + post.getTexto() + "\n\n");
+            textAreaPosts.append("Comentários:\n");
+            for (Comentario comentario : post.getComentarios()) {
+                textAreaPosts.append("- " + comentario.getAutor().getNome() + ": " + comentario.getTexto() + "\n");
+                textAreaPosts.append("   Pontuação: " + comentario.getPontuacaoMedia() + "\n\n");
+            }
+            textAreaPosts.append("-----------------------\n");
+        }
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
+    private void exibirUsuarios() {
+        textAreaUsers.setText("");
+        for (Usuario usuario : usuarios) {
+            textAreaUsers.append("Nome: " + usuario.getNome() + "\n");
+            textAreaUsers.append("Total de comentários: " + usuario.getTotalComentarios() + "\n");
+            textAreaUsers.append("Pontuação média dos comentários: " + usuario.getPontuacaoMediaComentarios() + "\n\n");
+        }
+    }
+
+    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new BlogGUI().setVisible(true);
             }
         });
     }
-}
 
-class Usuario {
-    private String nome;
-
-    public Usuario(String nome) {
-        this.nome = nome;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-}
-
-class Post {
-    private final String titulo;
-    private final String conteudo;
-    private final Usuario autor;
-    private final Date data;
-    private final List<Comentario> comentarios;
-
-    public Post(String titulo, String conteudo, Usuario autor, Date data) {
-        this.titulo = titulo;
-        this.conteudo = conteudo;
-        this.autor = autor;
-        this.data = data;
-        this.comentarios = new ArrayList<>();
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public String getConteudo() {
-        return conteudo;
-    }
-
-    public Usuario getAutor() {
-        return autor;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public List<Comentario> getComentarios() {
-        return comentarios;
-    }
-
-    public void adicionarComentario(Comentario comentario) {
-        comentarios.add(comentario);
-    }
-}
-
-class Comentario {
-    private final String texto;
-    private final Usuario autor;
-    private final Date data;
-
-    public Comentario(String texto, Usuario autor, Date data) {
-        this.texto = texto;
-        this.autor = autor;
-        this.data = data;
-    }
-
-    public String getTexto() {
-        return texto;
-    }
-
-    public Usuario getAutor() {
-        return autor;
-    }
-
-    public Date getData() {
-        return data;
-    }
+    private javax.swing.JButton jButtonComentarPost;
+    private javax.swing.JButton jButtonCriarPost;
+    private javax.swing.JButton jButtonCriarUsuario;
+    private javax.swing.JButton jButtonPontuarComentario;
+    private javax.swing.JPanel jPanelPosts;
+    private javax.swing.JPanel jPanelUsers;
+    private javax.swing.JScrollPane jScrollPanePosts;
+    private javax.swing.JScrollPane jScrollPaneUsers;
+    private javax.swing.JTabbedPane jTabbedPane;
+    private javax.swing.JTextArea textAreaPosts;
+    private javax.swing.JTextArea textAreaUsers;
 }
