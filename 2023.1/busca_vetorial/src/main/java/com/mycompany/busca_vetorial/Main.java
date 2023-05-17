@@ -15,8 +15,8 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class Main {
-    private Buscador<Documento> buscador;
-    private JTextArea textArea;
+    private final Buscador<Documento> buscador;
+    private final JTextArea textArea;
 
     public Main() {
         buscador = new Buscador<>();
