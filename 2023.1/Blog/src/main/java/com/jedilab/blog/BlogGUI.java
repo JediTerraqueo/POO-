@@ -12,6 +12,7 @@ public class BlogGUI extends javax.swing.JFrame {
 
     private List<Post> posts;
     private List<Usuario> usuarios;
+    private Timer timer;
 
     public BlogGUI() {
         initComponents();
@@ -31,6 +32,15 @@ public class BlogGUI extends javax.swing.JFrame {
         jScrollPaneUsers = new javax.swing.JScrollPane();
         textAreaUsers = new javax.swing.JTextArea();
         jButtonPontuarComentario = new javax.swing.JButton();
+        
+        timer = new Timer(100, new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            atualizarInformacoes();
+            }
+        });
+        timer.start();
+
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Blog");
@@ -150,7 +160,12 @@ public class BlogGUI extends javax.swing.JFrame {
 
         pack();
     }
-
+    
+    private void atualizarInformacoes() {
+        exibirPosts();
+        exibirUsuarios();
+    }
+    
     private void jButtonCriarPostActionPerformed(ActionEvent evt) {
         String titulo = JOptionPane.showInputDialog(this, "Digite o título do post:");
         if (titulo != null && !titulo.isEmpty()) {
@@ -185,10 +200,11 @@ public class BlogGUI extends javax.swing.JFrame {
         String nome = JOptionPane.showInputDialog(this, "Digite o nome do usuário:");
         if (nome != null && !nome.isEmpty()) {
             Usuario usuario = new Usuario(nome);
+            usuario.setPosts(posts); // Configura a lista de posts para o usuário
             usuarios.add(usuario);
             exibirUsuarios();
-        }
     }
+}
 
     private void jButtonPontuarComentarioActionPerformed(ActionEvent evt) {
         Comentario comentarioSelecionado = selecionarComentario();
@@ -197,15 +213,14 @@ public class BlogGUI extends javax.swing.JFrame {
             if (pontuador != null) {
                 int pontuacao = Integer.parseInt(JOptionPane.showInputDialog(this, "Digite a pontuação (0 a 5):"));
                 if (pontuacao >= 0 && pontuacao <= 5) {
-                    comentarioSelecionado.adicionarPontuacao(pontuacao);
-                    exibirUsuarios();
+                    comentarioSelecionado.adicionarPontuacao(pontuacao); // Atualiza a pontuação do comentário
+                    exibirPosts(); // Atualiza a exibição dos posts na tela
                 } else {
                     JOptionPane.showMessageDialog(this, "Pontuação inválida! A pontuação deve ser entre 0 e 5.");
-                }
             }
         }
     }
-
+}
     private Usuario selecionarUsuario() {
         if (usuarios.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Não há usuários cadastrados.");
@@ -296,20 +311,27 @@ public class BlogGUI extends javax.swing.JFrame {
             textAreaPosts.append("Comentários:\n");
             for (Comentario comentario : post.getComentarios()) {
                 textAreaPosts.append("- " + comentario.getAutor().getNome() + ": " + comentario.getTexto() + "\n");
-                textAreaPosts.append("   Pontuação: " + comentario.getPontuacaoMedia() + "\n\n");
+                textAreaPosts.append("   Pontuação: " + comentario.getPontuacao() + "\n\n");
             }
             textAreaPosts.append("-----------------------\n");
         }
     }
 
     private void exibirUsuarios() {
-        textAreaUsers.setText("");
-        for (Usuario usuario : usuarios) {
-            textAreaUsers.append("Nome: " + usuario.getNome() + "\n");
+    textAreaUsers.setText("");
+    for (Usuario usuario : usuarios) {
+        textAreaUsers.append("Nome: " + usuario.getNome() + "\n");
+        
+        // Verificar se a lista de comentários não é nula
+        if (usuario.getComentarios() != null) {
             textAreaUsers.append("Total de comentários: " + usuario.getTotalComentarios() + "\n");
-            textAreaUsers.append("Pontuação média dos comentários: " + usuario.getPontuacaoMediaComentarios() + "\n\n");
+            textAreaUsers.append("Pontuação média dos comentários: " + usuario.getPontuacaoMediaComentarios()+ "\n\n");
+        } else {
+            textAreaUsers.append("Total de comentários: 0\n");
+            textAreaUsers.append("Pontuação média dos comentários: 0.0\n\n");
         }
     }
+}
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

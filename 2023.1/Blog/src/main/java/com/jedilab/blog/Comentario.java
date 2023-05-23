@@ -8,7 +8,11 @@ public class Comentario {
     private Usuario autor;
     private String texto;
     private List<Integer> pontuacoes;
-
+    private int pontuacao;
+    private int totalPontuacoes;
+    private int numVotos;
+    int totalPontuacao = 0;
+    
     public Comentario(String texto, Usuario autor, Date date) {
         this.autor = autor;
         this.texto = texto;
@@ -24,7 +28,7 @@ public class Comentario {
     }
 
     public void adicionarPontuacao(int pontuacao) {
-        pontuacoes.add(pontuacao);
+        this.pontuacao += pontuacao;
     }
 
     public double getPontuacaoMedia() {
@@ -32,7 +36,7 @@ public class Comentario {
             return 0;
         }
 
-        int totalPontuacao = 0;
+        
         for (int pontuacao : pontuacoes) {
             totalPontuacao += pontuacao;
         }
@@ -41,15 +45,11 @@ public class Comentario {
     }
 
     public int getPontuacao() {
-        if (pontuacoes.isEmpty()) {
-            return 0;
-        }
+        return pontuacao;
+    }
+    
+    public void setPontuacao(int pontuacao) {
+        this.pontuacao = pontuacao;
 
-        int totalPontuacao = 0;
-        for (int pontuacao : pontuacoes) {
-            totalPontuacao += pontuacao;
-        }
-
-        return totalPontuacao;
     }
 }

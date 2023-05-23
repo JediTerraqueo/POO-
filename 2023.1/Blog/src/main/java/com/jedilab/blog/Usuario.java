@@ -7,10 +7,21 @@ import java.util.List;
 public class Usuario {
     private String nome;
     private List<Comentario> comentarios;
+    private List<Post> posts;
+    
 
+    
     public Usuario(String nome) {
         this.nome = nome;
         this.comentarios = new ArrayList<>();
+    } 
+    
+    public List<Comentario> getComentarios() {
+        return comentarios;
+    }
+    
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 
     public String getNome() {
@@ -28,19 +39,27 @@ public class Usuario {
     }
 
     public int getTotalComentarios() {
-        return comentarios.size();
+        int totalComentarios = 0;
+        for (Post post : posts) {
+            for (Comentario comentario : post.getComentarios()) {
+                if (comentario.getAutor().equals(this)) {
+                    totalComentarios++;
+                }
+            }
+        }
+    return totalComentarios;
     }
 
     public double getPontuacaoMediaComentarios() {
+        int totalPontuacao = 0;
         if (comentarios.isEmpty()) {
             return 0;
-        }
+        }else{
 
-        int totalPontuacao = 0;
         for (Comentario comentario : comentarios) {
             totalPontuacao += comentario.getPontuacao();
         }
-
         return (double) totalPontuacao / comentarios.size();
+        }
     }
 }
