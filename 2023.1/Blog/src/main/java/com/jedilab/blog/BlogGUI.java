@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -40,7 +41,7 @@ public class BlogGUI extends javax.swing.JFrame {
             }
         });
         timer.start();
-
+        
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Blog");
@@ -189,6 +190,7 @@ public class BlogGUI extends javax.swing.JFrame {
                 Usuario autor = selecionarUsuario();
                 if (autor != null) {
                     Comentario comentario = new Comentario(texto, autor, new Date());
+                    autor.addComentario(comentario);
                     postSelecionado.adicionarComentario(comentario);
                     exibirPosts();
                 }
@@ -209,15 +211,12 @@ public class BlogGUI extends javax.swing.JFrame {
     private void jButtonPontuarComentarioActionPerformed(ActionEvent evt) {
         Comentario comentarioSelecionado = selecionarComentario();
         if (comentarioSelecionado != null) {
-            Usuario pontuador = selecionarUsuario();
-            if (pontuador != null) {
-                int pontuacao = Integer.parseInt(JOptionPane.showInputDialog(this, "Digite a pontuação (0 a 5):"));
-                if (pontuacao >= 0 && pontuacao <= 5) {
-                    comentarioSelecionado.adicionarPontuacao(pontuacao); // Atualiza a pontuação do comentário
-                    exibirPosts(); // Atualiza a exibição dos posts na tela
-                } else {
-                    JOptionPane.showMessageDialog(this, "Pontuação inválida! A pontuação deve ser entre 0 e 5.");
-            }
+            int pontuacao = Integer.parseInt(JOptionPane.showInputDialog(this, "Digite a pontuação (0 a 5):"));
+            if (pontuacao >= 0 && pontuacao <= 5) {
+                comentarioSelecionado.adicionarPontuacao(pontuacao); // Atualiza a pontuação do comentário
+                exibirPosts(); // Atualiza a exibição dos posts na tela
+            } else {
+                JOptionPane.showMessageDialog(this, "Pontuação inválida! A pontuação deve ser entre 0 e 5.");
         }
     }
 }
@@ -303,6 +302,7 @@ public class BlogGUI extends javax.swing.JFrame {
 
     private void exibirPosts() {
         textAreaPosts.setText("");
+        
         for (Post post : posts) {
             textAreaPosts.append("Título: " + post.getTitulo() + "\n");
             textAreaPosts.append("Autor: " + post.getAutor().getNome() + "\n");
@@ -319,13 +319,14 @@ public class BlogGUI extends javax.swing.JFrame {
 
     private void exibirUsuarios() {
     textAreaUsers.setText("");
+    DecimalFormat df = new DecimalFormat("0.##");
     for (Usuario usuario : usuarios) {
         textAreaUsers.append("Nome: " + usuario.getNome() + "\n");
         
         // Verificar se a lista de comentários não é nula
         if (usuario.getComentarios() != null) {
             textAreaUsers.append("Total de comentários: " + usuario.getTotalComentarios() + "\n");
-            textAreaUsers.append("Pontuação média dos comentários: " + usuario.getPontuacaoMediaComentarios()+ "\n\n");
+            textAreaUsers.append("Pontuação média dos comentários: " + df.format(usuario.getPontuacaoMediaComentarios())+ "\n\n");
         } else {
             textAreaUsers.append("Total de comentários: 0\n");
             textAreaUsers.append("Pontuação média dos comentários: 0.0\n\n");

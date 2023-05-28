@@ -8,7 +8,7 @@ public class Usuario {
     private String nome;
     private List<Comentario> comentarios;
     private List<Post> posts;
-    
+   
 
     
     public Usuario(String nome) {
@@ -17,7 +17,7 @@ public class Usuario {
     } 
     
     public List<Comentario> getComentarios() {
-        return comentarios;
+        return this.comentarios;
     }
     
     public void setPosts(List<Post> posts) {
@@ -26,6 +26,11 @@ public class Usuario {
 
     public String getNome() {
         return nome;
+    }
+    
+    public void addComentario(Comentario c){
+        this.getComentarios().add(c);
+        
     }
 
     public void comentarPost(Post post, String texto) {
@@ -51,15 +56,20 @@ public class Usuario {
     }
 
     public double getPontuacaoMediaComentarios() {
-        int totalPontuacao = 0;
+        double totalPontuacao = 0;
+        double pontuacao_media = 0;
+        
         if (comentarios.isEmpty()) {
+            //int variavelQualquerAi = 0;
             return 0;
         }else{
-
+            
         for (Comentario comentario : comentarios) {
             totalPontuacao += comentario.getPontuacao();
         }
-        return (double) totalPontuacao / comentarios.size();
+        pontuacao_media = totalPontuacao / comentarios.size();
+        
+        return pontuacao_media;
         }
     }
 }
