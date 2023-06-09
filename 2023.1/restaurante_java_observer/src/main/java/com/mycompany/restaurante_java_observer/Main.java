@@ -7,7 +7,7 @@ public class Main {
         App app = new App();
 
         // Carregar os pratos do arquivo (pratos.txt)
-        app.carregarPratos("src\\main\\java\\com\\mycompany\\restaurante_java_mamador\\Pratos.txt");
+        app.carregarPratos("src\\main\\java\\com\\mycompany\\restaurante_java_observer\\Pratos.txt");
 
         // Criar a janela principal
         SwingUtilities.invokeLater(() -> {

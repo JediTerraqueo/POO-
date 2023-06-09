@@ -9,9 +9,13 @@ import java.util.ArrayList;
 public class PedidosPanel extends JPanel implements ActionListener {
     private App app;
     private JTextArea pedidosTextArea;
-
+    private int numero;
+    private ArrayList<Item> itens;
+    
     public PedidosPanel(App app) {
         this.app = app;
+        this.numero = numero;
+        this.itens = new ArrayList<>();
 
         setLayout(new BorderLayout());
 
@@ -39,19 +43,18 @@ public class PedidosPanel extends JPanel implements ActionListener {
 
         for (Pedido pedido : pedidos) {
             sb.append("Número do Pedido: ").append(pedido.getNumero()).append("\n");
-            sb.append("Pratos:\n");
-
+            sb.append("Pratos:\n"); 
             ArrayList<Item> itens = (ArrayList<Item>) pedido.getItens();
             for (Item item : itens) {
                 Prato prato = item.getPrato();
                 int quantidade = item.getQuantidade();
-
                 sb.append("- ").append(prato.getNome()).append(" (").append(prato.getPreco()).append(") x ").append(quantidade).append("\n");
             }
 
             sb.append("\n");
+            sb.append("Valor total do pedido: ").append(pedido.calcularValorTotal());
         }
-
+        
         pedidosTextArea.setText(sb.toString());
     }
 }
