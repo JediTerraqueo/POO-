@@ -54,7 +54,7 @@ public class PedidosPanel extends JPanel implements ActionListener {
             
             sb.append("\n");
             sb.append("Valor total do pedido: ").append(pedido.calcularValorTotal());
-            
+            sb.append("\n");
         }
         
         pedidosTextArea.setText(sb.toString());
