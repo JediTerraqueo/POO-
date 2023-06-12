@@ -1,6 +1,11 @@
 package com.mycompany.restaurante_java_observer;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +28,7 @@ public class App {
         pratos.add(prato);
     }
 
-    public void salvarPratos(String arquivo) {
+    /*public void salvarPratos(String arquivo) {
         try (PrintWriter writer = new PrintWriter(new FileWriter(arquivo))) {
             for (Prato prato : pratos) {
                 writer.println(prato.getNome());
@@ -34,7 +39,7 @@ public class App {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
         public void carregarPratos(String arquivo) {
         try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
@@ -59,6 +64,7 @@ public class App {
         Pedido pedido = new Pedido(proximoNumeroPedido);
         pedidos.add(pedido);
         proximoNumeroPedido++;
+        
         return pedido;
     }
 
@@ -66,18 +72,35 @@ public class App {
         return pedidos;
     }
 
+    public void adicionarItemPedido(Pedido pedido, Prato prato, int quantidade) {
+        pedido.adicionarItem(prato, quantidade);
+    }
+
+    public void removerItemPedido(Pedido pedido, Item item) {
+        pedido.removerItem(item);
+    }
+
+    public void modificarQuantidadeItemPedido(Item item, int novaQuantidade) {
+        item.setQuantidade(novaQuantidade);
+    }
+
     public void salvarPedidos(String arquivo) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(arquivo))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(arquivo))) {
             for (Pedido pedido : pedidos) {
-                writer.println(pedido.getNumero());
+                bw.write("Pedido numero: " + pedido.getNumero() + "; \n");
+
                 for (Item item : pedido.getItens()) {
-                    writer.println(item.getPrato().getNome());
-                    writer.println(item.getQuantidade());
+                    Prato prato = item.getPrato();
+                    int quantidade = item.getQuantidade();
+
+                    bw.write(quantidade + "; " + prato.getNome() + "; "+ prato.getPreco()+"; " + "Valor total do pedido: " + pedido.calcularValorTotal());
+                    bw.write("\n");
                 }
-                writer.println("---");
+
+                bw.newLine();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Erro ao salvar os pedidos: " + e.getMessage());
         }
     }
 

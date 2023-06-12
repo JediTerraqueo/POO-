@@ -13,6 +13,6 @@ public class Main {
         SwingUtilities.invokeLater(() -> {
             TelaPrincipal telaPrincipal = new TelaPrincipal(app);
             telaPrincipal.setVisible(true);
-        });
+        });  
     }
 }

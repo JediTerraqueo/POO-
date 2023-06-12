@@ -27,8 +27,8 @@ public class Pedido {
         item.setQuantidade(novaQuantidade);
     }
 
-    public void salvarPedido(String arquivo) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(arquivo, true))) {
+    /*public void salvarPedido() {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("src\\main\\java\\com\\mycompany\\restaurante_java_observer\\Pedidos.txt", true))) {
             bw.write(this.numero + ";");
 
             for (Item item : itens) {
@@ -37,12 +37,11 @@ public class Pedido {
 
                 bw.write(quantidade + ";" + prato.getNome() + ";");
             }
-
             bw.newLine();
         } catch (IOException e) {
             System.out.println("Erro ao salvar o pedido: " + e.getMessage());
         }
-    }
+    }*/
 
     public double calcularValorTotal() {
         double valorTotal = 0.0;

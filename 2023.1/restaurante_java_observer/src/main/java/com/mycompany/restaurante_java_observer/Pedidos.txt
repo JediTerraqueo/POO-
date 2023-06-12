@@ -1,3 +1,7 @@
-Prato A,15.5,2
-Prato A,15.5,3
-Prato B,12.99,2
+Pedido numero: 1; 
+1; Lasanha; 30.0; Valor total do pedido: 150.0
+1; Lasanha; 30.0; Valor total do pedido: 150.0
+1; Lasanha; 30.0; Valor total do pedido: 150.0
+1; Lasanha; 30.0; Valor total do pedido: 150.0
+1; Lasanha; 30.0; Valor total do pedido: 150.0
+

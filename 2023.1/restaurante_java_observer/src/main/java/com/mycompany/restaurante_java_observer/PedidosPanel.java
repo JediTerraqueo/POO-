@@ -29,7 +29,7 @@ public class PedidosPanel extends JPanel implements ActionListener {
         listarPedidosButton.addActionListener(this);
         add(listarPedidosButton, BorderLayout.SOUTH);
     }
-
+   
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() instanceof JButton) {
@@ -38,6 +38,7 @@ public class PedidosPanel extends JPanel implements ActionListener {
     }
 
     private void listarPedidos() {
+        app.salvarPedidos("src\\main\\java\\com\\mycompany\\restaurante_java_observer\\Pedidos.txt");
         ArrayList<Pedido> pedidos = (ArrayList<Pedido>) app.getPedidos();
         StringBuilder sb = new StringBuilder();
 
@@ -50,9 +51,10 @@ public class PedidosPanel extends JPanel implements ActionListener {
                 int quantidade = item.getQuantidade();
                 sb.append("- ").append(prato.getNome()).append(" (").append(prato.getPreco()).append(") x ").append(quantidade).append("\n");
             }
-
+            
             sb.append("\n");
             sb.append("Valor total do pedido: ").append(pedido.calcularValorTotal());
+            
         }
         
         pedidosTextArea.setText(sb.toString());
