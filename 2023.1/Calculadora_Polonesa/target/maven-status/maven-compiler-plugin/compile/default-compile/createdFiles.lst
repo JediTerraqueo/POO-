@@ -1,0 +1,16 @@
+com\mycompany\calculadora_polonesa\DivisionOperator.class
+com\mycompany\calculadora_polonesa\Context.class
+com\mycompany\calculadora_polonesa\OperatorFactory.class
+com\mycompany\calculadora_polonesa\ExpressionInterpreter.class
+com\mycompany\calculadora_polonesa\ExpressionTokenHandler.class
+com\mycompany\calculadora_polonesa\Operator.class
+com\mycompany\calculadora_polonesa\Main.class
+com\mycompany\calculadora_polonesa\SubtractionExpression.class
+com\mycompany\calculadora_polonesa\TokenContext.class
+com\mycompany\calculadora_polonesa\AdditionExpression.class
+com\mycompany\calculadora_polonesa\MultiplicationOperator.class
+com\mycompany\calculadora_polonesa\TokenHandler.class
+com\mycompany\calculadora_polonesa\SubtractionOperator.class
+com\mycompany\calculadora_polonesa\AdditionOperator.class
+com\mycompany\calculadora_polonesa\VariableTokenHandler.class
+com\mycompany\calculadora_polonesa\Expression.class

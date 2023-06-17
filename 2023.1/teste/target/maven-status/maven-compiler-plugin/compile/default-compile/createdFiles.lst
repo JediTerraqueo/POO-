@@ -1,0 +1,12 @@
+com\mycompany\teste\ExpressionInterpreter.class
+com\mycompany\teste\Visitor.class
+com\mycompany\teste\CalculationVisitor.class
+com\mycompany\teste\Constant.class
+com\mycompany\teste\OperationHandler.class
+com\mycompany\teste\Multiplication.class
+com\mycompany\teste\Addition.class
+com\mycompany\teste\ConstantHandler.class
+com\mycompany\teste\Variable.class
+com\mycompany\teste\VariableHandler.class
+com\mycompany\teste\Element.class
+com\mycompany\teste\ExpressionHandler.class

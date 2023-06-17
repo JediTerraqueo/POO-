@@ -1,0 +1,9 @@
+com\mycompany\mavenproject3\NumberExpression.class
+com\mycompany\mavenproject3\PolishNotationParser.class
+com\mycompany\mavenproject3\AdditionExpression.class
+com\mycompany\mavenproject3\OperatorExpression.class
+com\mycompany\mavenproject3\EvaluationVisitor.class
+com\mycompany\mavenproject3\Expression.class
+com\mycompany\mavenproject3\Main.class
+com\mycompany\mavenproject3\MultiplicationExpression.class
+com\mycompany\mavenproject3\VariableExpression.class

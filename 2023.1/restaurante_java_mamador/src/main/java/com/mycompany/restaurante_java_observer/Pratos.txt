@@ -1,0 +1,15 @@
+Lasanha;Deliciosa lasanha de carne;30.00
+Sushi;Seleção de sushis frescos;25.00
+Pizza Margherita;Pizza clássica com molho de tomate, queijo e manjericão;20.00
+Risoto de Cogumelos;Risoto cremoso com cogumelos frescos;35.00
+Feijoada;Feijoada completa com carne de porco e acompanhamentos;40.00
+Hambúrguer;Hambúrguer artesanal com queijo, alface e tomate;15.00
+Salada Caesar;Salada fresca com alface, frango grelhado, croutons e molho Caesar;18.00
+Macarrão à Bolonhesa;Macarrão com molho de carne à bolonhesa;22.00
+Peixe Grelhado;Peixe grelhado com legumes salteados;28.00
+Frango Xadrez;Frango refogado com pimentões e legumes, servido com arroz;23.00
+Sopa de Legumes;Sopa quente e reconfortante com legumes frescos;12.00
+Taco de Carne;Taco de carne moída com guacamole, queijo e salsa;16.00
+Poke Bowl;Tigela de arroz com peixe cru, legumes e molho especial;24.00
+Frango à Parmegiana;Filé de frango empanado com molho de tomate e queijo gratinado;26.00
+Salmão Grelhado;Salmão grelhado com purê de batatas e molho de limão;32.00
