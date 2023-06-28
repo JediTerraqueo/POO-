@@ -3,6 +3,7 @@ package com.mycompany.java_mutli_thread_determinante;
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
 import java.util.concurrent.TimeUnit;
 
 public class DeterminantCalculatorApp {
@@ -22,23 +23,16 @@ public class DeterminantCalculatorApp {
             }
         }
 
-        System.out.print("Digite o número de threads: ");
-        int numThreads = scanner.nextInt();
+        int numThreads = Math.min(size, 8);
 
         DeterminantCalculator calculator = new DeterminantCalculatorImpl();
 
         ExecutorService executorService = Executors.newFixedThreadPool(numThreads);
         DeterminantCalculationThread[] threads = new DeterminantCalculationThread[numThreads];
 
-        int rowsPerThread = size / numThreads;
-        int remainingRows = size % numThreads;
-        int currentRow = 0;
-
         for (int i = 0; i < numThreads; i++) {
-            int rows = rowsPerThread + (i < remainingRows ? 1 : 0);
-            threads[i] = new DeterminantCalculationThread(matrix, currentRow, currentRow + rows - 1, calculator);
+            threads[i] = new DeterminantCalculationThread(matrix, i, calculator);
             executorService.execute(threads[i]);
-            currentRow += rows;
         }
 
         executorService.shutdown();
