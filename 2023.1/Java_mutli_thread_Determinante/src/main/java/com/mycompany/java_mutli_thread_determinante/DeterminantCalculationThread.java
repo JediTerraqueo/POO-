@@ -4,44 +4,39 @@ public class DeterminantCalculationThread implements Runnable {
     private final double[][] matrix;
     private final int row;
     private final DeterminantCalculator calculator;
+    private final int numThreads;
     private double result;
 
-    public DeterminantCalculationThread(double[][] matrix, int row, DeterminantCalculator calculator) {
+    public DeterminantCalculationThread(double[][] matrix, int row, DeterminantCalculator calculator, int numThreads) {
         this.matrix = matrix;
         this.row = row;
         this.calculator = calculator;
+        this.numThreads = numThreads;
     }
 
     @Override
     public void run() {
-        double[][] subMatrix = createSubMatrix(matrix, row, 0);
-        result = matrix[row][0] * calculator.calculateDeterminant(subMatrix);
-    }
-
-    private double[][] createSubMatrix(double[][] matrix, int rowToRemove, int colToRemove) {
         int size = matrix.length;
         double[][] subMatrix = new double[size - 1][size - 1];
+        int subRowIndex = 0;
 
-        int rowIndex = 0;
-        for (int i = 0; i < size; i++) {
-            if (i == rowToRemove) {
-                continue;
-            }
+        for (int rowIndex = 1; rowIndex < size; rowIndex++) {
+            int subColIndex = 0;
 
-            int colIndex = 0;
-            for (int j = 0; j < size; j++) {
-                if (j == colToRemove) {
+            for (int colIndex = 0; colIndex < size; colIndex++) {
+                if (colIndex == row) {
                     continue;
                 }
 
-                subMatrix[rowIndex][colIndex] = matrix[i][j];
-                colIndex++;
+                subMatrix[subRowIndex][subColIndex] = matrix[rowIndex][colIndex];
+                subColIndex++;
             }
 
-            rowIndex++;
+            subRowIndex++;
         }
 
-        return subMatrix;
+        double partialResult = matrix[0][row] * calculator.calculateDeterminant(subMatrix);
+        result = (row % 2 == 0) ? partialResult : -partialResult;
     }
 
     public double getResult() {

@@ -1,6 +1,5 @@
 package com.mycompany.java_mutli_thread_determinante;
 
-
 public class DeterminantCalculatorImpl implements DeterminantCalculator {
     @Override
     public double calculateDeterminant(double[][] matrix) {
@@ -24,8 +23,8 @@ public class DeterminantCalculatorImpl implements DeterminantCalculator {
 
     private double cofactor(double[][] matrix, int row, int col) {
         int sign = ((row + col) % 2 == 0) ? 1 : -1;
-        double subDeterminant = calculateDeterminant(createSubMatrix(matrix, row, col));
-        return sign * subDeterminant;
+        double[][] subMatrix = createSubMatrix(matrix, row, col);
+        return sign * calculateDeterminant(subMatrix);
     }
 
     private double[][] createSubMatrix(double[][] matrix, int rowToRemove, int colToRemove) {
@@ -54,4 +53,3 @@ public class DeterminantCalculatorImpl implements DeterminantCalculator {
         return subMatrix;
     }
 }
-
