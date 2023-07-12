@@ -4,26 +4,39 @@ public class Main {
     public static void main(String[] args) {
         Dicionario dicionario = new Dicionario();
 
-        Substantivo substantivo1 = new Substantivo("cachorro");
-        substantivo1.adicionarSinonimo(new Sinonimo("cão"));
-        substantivo1.adicionarSinonimo(new Sinonimo("cãozinho"));
+        // Adicionar palavras
+        dicionario.adicionarPalavra("casa");
+        dicionario.adicionarPalavra("lar");
 
-        Verbo verbo1 = new Verbo("correr");
-        verbo1.adicionarSinonimo(new Sinonimo("correr muito"));
-        verbo1.adicionarSinonimo(new Sinonimo("sprintar"));
+        // Adicionar grafias
+        dicionario.adicionarGrafia("casa", "kasa");
+        dicionario.adicionarGrafia("lar", "laar");
 
-        dicionario.adicionarPalavra(substantivo1);
-        dicionario.adicionarPalavra(verbo1);
+        // Adicionar significados
+        dicionario.adicionarSignificado("casa", "residência");
+        dicionario.adicionarSignificado("lar", "moradia");
 
-        Palavra palavra = dicionario.buscarPalavra("cachorro");
-        if (palavra != null) {
-            System.out.println(palavra.getNome() + " é um " + palavra.getTipo() + ".");
-            System.out.println("Sinônimos:");
-            for (Sinonimo sinonimo : palavra.getSinonimos()) {
-                System.out.println("- " + sinonimo.getNome());
-            }
-        } else {
-            System.out.println("Palavra não encontrada no dicionário.");
-        }
+        // Adicionar verbo e substantivo
+        dicionario.adicionarVerbo("casa");
+        dicionario.adicionarSubstantivo("lar");
+
+        // Adicionar sinonimos
+        dicionario.adicionarSinonimo("casa", "habitação", "lugar onde se mora");
+        dicionario.adicionarSinonimo("lar", "morada", "local de habitação");
+
+        // Listar palavras
+        dicionario.listarPalavra("casa");
+        System.out.println("-------------");
+        dicionario.listarPalavra("lar");
+        System.out.println("-------------");
+        dicionario.listarPalavra("teste");
+
+        // Listar sinonimos
+        System.out.println("-------------");
+        dicionario.listarSinonimos("casa");
+        System.out.println("-------------");
+        dicionario.listarSinonimos("lar");
+        System.out.println("-------------");
+        dicionario.listarSinonimos("teste");
     }
 }

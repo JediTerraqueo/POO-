@@ -3,26 +3,54 @@ package com.mycompany.dicionario;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Palavra {
-    protected String nome;
-    protected List<Sinonimo> sinonimos;
+public class Palavra {
+    private String palavra;
+    private List<String> grafias;
+    private List<String> significados;
+    private boolean verbo;
+    private boolean substantivo;
 
-    public Palavra(String nome) {
-        this.nome = nome;
-        this.sinonimos = new ArrayList<>();
+    public Palavra(String palavra) {
+        this.palavra = palavra;
+        this.grafias = new ArrayList<>();
+        this.significados = new ArrayList<>();
+        this.verbo = false;
+        this.substantivo = false;
     }
 
-    public String getNome() {
-        return nome;
+    public String getPalavra() {
+        return palavra;
     }
 
-    public List<Sinonimo> getSinonimos() {
-        return sinonimos;
+    public List<String> getGrafias() {
+        return grafias;
     }
 
-    public void adicionarSinonimo(Sinonimo sinonimo) {
-        sinonimos.add(sinonimo);
+    public List<String> getSignificados() {
+        return significados;
     }
 
-    public abstract String getTipo();
+    public boolean isVerbo() {
+        return verbo;
+    }
+
+    public boolean isSubstantivo() {
+        return substantivo;
+    }
+
+    public void adicionarGrafia(String grafia) {
+        grafias.add(grafia);
+    }
+
+    public void adicionarSignificado(String significado) {
+        significados.add(significado);
+    }
+
+    public void setVerbo(boolean verbo) {
+        this.verbo = verbo;
+    }
+
+    public void setSubstantivo(boolean substantivo) {
+        this.substantivo = substantivo;
+    }
 }

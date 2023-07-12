@@ -1,0 +1,6 @@
+1,2,Hambúrguer,10.0
+1,1,Batata Frita,5.0
+2,3,Pizza,20.0
+3,2,Refrigerante,4.0
+3,1,Bolo de Chocolate,15.0
+3,2,Café,3.0
